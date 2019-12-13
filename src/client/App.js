@@ -4,7 +4,6 @@ import Header from './components/Header';
 import Loaf from './components/Loaf';
 import './app.css';
 
-
 const App = () => {
   return (
     <div class='app'>
