@@ -10,6 +10,7 @@ app.use(cors());
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 
+app.use(express.static('dist'));
 app.use(routes);
 
 export default app;

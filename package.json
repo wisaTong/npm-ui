@@ -4,8 +4,8 @@
   "description": "gui project manager for npm project",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon server.js --exec babel-node",
-    "dev": "webpack-dev-server --mode development",
+    "start": "build && nodemon server.js --exec babel-node",
+    "prebuild": "rm -rf dist",
     "build": "cp -r public/ dist/ && webpack"
   },
   "repository": {
