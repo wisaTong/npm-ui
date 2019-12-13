@@ -1,31 +1,19 @@
 import { h, Fragment } from 'preact';
 import { useState, useEffect } from 'preact/hooks';
-import querystring from 'querystring';
+import api from '../../api';
 import Breadcrumb from './Breadcrumb';
 import Slicedbread from './Slicedbread';
-import ImportBtn from '../ImportBtn/ImportBtn';
-
-async function fetchDirs(path) {
-  const url = 'http://localhost:3000/dirs?';
-  const res = await fetch(path ? url + querystring.stringify({ path }) : url);
-  return res.json();
-}
-
-function fetchPkgJson(path) {
-  fetch('http://localhost:3000/readfile?' + querystring.stringify({ path }))
-    .then(res => res.json())
-    .then(console.log);
-}
+import ImportBtn from '../ImportBtn';
 
 const Loaf = () => {
   const [cwd, setCwd] = useState(null);
 
   const fetchDirsSetCwd = async (path) => {
-    const wd = await fetchDirs(path);
+    const wd = await api.fetchDirs(path);
     setCwd(wd);
   };
 
-  useEffect(() => { fetchDirsSetCwd() }, []);
+  useEffect(async () => { setCwd(await api.fetchDirs()) }, []);
 
   return cwd
     ? <Fragment>
