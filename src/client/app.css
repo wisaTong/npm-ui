@@ -13,11 +13,6 @@ ul, ol {
   list-style: none;
 }
 
-.app {
-  width: 100vw;
-  height: 100vh;
-}
-
 .app-body {
   padding: 0 15%;
 }
