@@ -14,7 +14,7 @@ const DepListContainer = ({ path }) => {
 
   return (
     pkgJson
-      ? <DepList deps={_.keys(pkgJson.dependencies)} />
+      ? <DepList pkgJson={pkgJson} />
       : <button onClick = { () => { importPkgJson(path) } }>import</button>
   );
 }

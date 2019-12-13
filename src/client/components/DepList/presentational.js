@@ -1,11 +1,18 @@
+import _ from 'underscore';
 import { h } from 'preact';
 import './style.css';
 
-const DepList = ({ deps }) => {
+const DepList = ({ pkgJson }) => {
+  const { dependencies, devDependencies } = pkgJson;
   return (
-    <ul>
-      {deps.map(d => <li class='depname'>{d}</li>)}
-    </ul>
+    <div class='deplist-holder'>
+      <ul class='deplist'>
+        {_.keys(dependencies).map(d => <li class='dep-name'>{d}</li>)}
+      </ul>
+      <ul class='deplist'>
+        {_.keys(devDependencies).map(d => <li class='depdev-name'>{d}</li>)}
+      </ul>
+    </div>
   );
 };
 

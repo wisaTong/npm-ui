@@ -1,3 +1,7 @@
-.depname {
+.dep-name {
   background-color: #F30687;
+}
+
+.depdev-name {
+  background-color: #F30882;
 }
