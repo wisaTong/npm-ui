@@ -1,12 +1,21 @@
 import { h } from 'preact';
 import _ from 'underscore';
+import './style.css';
+import { dirname } from 'path';
 
 const Slicedbread = ({ dirs, callback }) => {
   return (
     <ul class='dirs-holder'>
-      {dirs.map(d => <li onClick={() => callback(d)}>{_.last(d.split('/'))}</li>)}
+      {dirs.map(d => <Slice path={d} callback={callback} />)}
     </ul>
   );
 }
+
+const Slice = ({ path, callback }) => {
+  const dirName = _.last(path.split('/'));
+  return (
+    <li class='dirname' onClick={() => callback(path)}>{dirName}</li>
+  );
+};
 
 export default Slicedbread;

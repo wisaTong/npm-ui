@@ -6,4 +6,9 @@
 
 .breadcrumb {
   margin-left: 1rem;
+  background-color: #FF8047;
+}
+
+.dirname {
+  background-color: #F42338;
 }

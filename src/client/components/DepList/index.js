@@ -1,8 +1,8 @@
 import _ from 'underscore';
 import { h } from 'preact';
-import { useState, useEffect } from 'preact/hooks';
+import { useState } from 'preact/hooks';
 import api from '../../api';
-import DepList from './DepList';
+import DepList from './presentational';
 
 const DepListContainer = ({ path }) => {
   const [pkgJson, setContent] = useState(null);
