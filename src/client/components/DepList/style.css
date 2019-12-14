@@ -18,10 +18,12 @@
 }
 
 .deplist {
+  position: relative;
   margin-bottom: 2rem;
 }
 
 .import-btn {
+  width: 100%;
   padding: 1rem 2rem;
   background: none;
   border: 2px solid #F30882;
@@ -40,4 +42,29 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.uninstall {
+  position: absolute;
+  right: 1.2rem;
+  color: #F30882;
+  transition: transform .3s ease-out;
+}
+
+.uninstall:hover {
+  transform: scale(1.1);
+}
+
+.spinner {
+  border: 3px solid #F30882;
+  border-top: 3px solid rgba(255, 128, 71, .5); /* Light grey */
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }

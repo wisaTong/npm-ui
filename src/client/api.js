@@ -22,8 +22,19 @@ async function pkgJsonContent(path) {
   return res.json();
 }
 
+async function uninstall(path, pkg) {
+  const url = `${BASE_URL}/uninstall`;
+  const res = await fetch(url, {
+    method: 'DELETE',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ path, pkg })
+  });
+  return res.ok;
+}
+
 export default {
   dirs,
   hasPkgJson,
-  pkgJsonContent
+  pkgJsonContent,
+  uninstall
 };

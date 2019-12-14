@@ -14,7 +14,7 @@ const DepListContainer = ({ path }) => {
 
   return (
     pkgJson
-      ? <DepList pkgJson={pkgJson} />
+      ? <DepList pkgJson={pkgJson} path={path} />
       : <button class='import-btn' onClick = { () => { importPkgJson(path) } }>import</button>
   );
 }
