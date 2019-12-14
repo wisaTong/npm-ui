@@ -1,3 +1,10 @@
+.loaf-body {
+  display: flex;
+  flex-flow: row nowrap;
+  height: 80vh;
+  margin-top: 2rem;
+}
+
 .breadcrumb-holder {
   width: 80%;
   display: flex;
@@ -6,9 +13,25 @@
 
 .breadcrumb {
   margin-left: 1rem;
+  padding: .3rem .7rem;
+  border-radius: 8px;
   background-color: #FF8047;
 }
 
+.dirs-holder {
+  width: 70%;
+  height: 100%;
+  overflow: auto;
+}
+
 .dirname {
-  background-color: #F42338;
+  padding: .6rem 1rem;
+}
+
+.dirname:hover {
+  background-color: lightpink;
+}
+
+.list {
+  padding: 1rem;
 }

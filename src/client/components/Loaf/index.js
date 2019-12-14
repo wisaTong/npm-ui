@@ -4,6 +4,7 @@ import api from '../../api';
 import Breadcrumb from './Breadcrumb';
 import Slicedbread from './Slicedbread';
 import NpmContent from '../NpmContent';
+import './style.css';
 
 const Loaf = () => {
   const [cwd, setCwd] = useState(null);
@@ -18,8 +19,10 @@ const Loaf = () => {
   return cwd
     ? <Fragment>
       <Breadcrumb path={cwd.path} callback={fetchDirsSetCwd} />
-      <Slicedbread dirs={cwd.dirs} callback={fetchDirsSetCwd} />
-      <NpmContent path={cwd.path} />
+      <div class='loaf-body'>
+        <Slicedbread dirs={cwd.dirs} callback={fetchDirsSetCwd} />
+        <NpmContent path={cwd.path} />
+      </div>
     </Fragment>
     : null;
 };

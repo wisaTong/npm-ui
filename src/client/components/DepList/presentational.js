@@ -7,10 +7,10 @@ const DepList = ({ pkgJson }) => {
   return (
     <div class='deplist-holder'>
       <ul class='deplist'>
-        {_.keys(dependencies).map(d => <li class='dep-name'>{d}</li>)}
+        {_.keys(dependencies).map(d => <li class='list dep-name'>{d}</li>)}
       </ul>
       <ul class='deplist'>
-        {_.keys(devDependencies).map(d => <li class='depdev-name'>{d}</li>)}
+        {_.keys(devDependencies).map(d => <li class='list depdev-name'>{d}</li>)}
       </ul>
     </div>
   );

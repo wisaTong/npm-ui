@@ -1,7 +1,6 @@
 import { h } from 'preact';
 import _ from 'underscore';
 import './style.css';
-import { dirname } from 'path';
 
 const Slicedbread = ({ dirs, callback }) => {
   return (

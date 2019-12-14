@@ -1,7 +1,13 @@
-.dep-name {
-  background-color: #F30687;
+.dep-name:hover {
+  background-color: rgba(255, 44, 168, .5);
 }
 
-.depdev-name {
-  background-color: #F30882;
+.depdev-name:hover {
+  background-color: rgba(255, 44, 168, .7);
+}
+
+.deplist-holder {
+  width: 30%;
+  height: 100%;
+  overflow: auto;
 }

@@ -23,7 +23,7 @@ const Breadcrumb = ({ path, callback }) => {
 const Bread = ({ pathToDir, callback }) => {
   return (
     <div class='breadcrumb' onClick={() => callback(pathToDir)}>
-      <h1>{_.last(pathToDir.split('/'))}</h1>
+      <span>{_.last(pathToDir.split('/'))}</span>
     </div>
   );
 }
