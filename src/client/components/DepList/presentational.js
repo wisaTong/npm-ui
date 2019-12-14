@@ -16,7 +16,7 @@ const DepList = ({ pkgJson, path }) => {
       <h1>Development Dependecies</h1>
       <ul class='deplist'>
         {_.keys(devDependencies)
-          .map(d => <li class='list depdev-name'>{d}</li>)}
+          .map(d => <DepEntry name={d} callback={() => api.uninstall(path, d)} dev={true} />)}
       </ul>
     </div>
   );
@@ -28,7 +28,7 @@ const uninstall = async (setState, setGone, apiCall) => {
   setGone(true);
 };
 
-const DepEntry = ({ name, callback }) => {
+const DepEntry = ({ name, callback, dev }) => {
   const [hover, setHover] = useState(false);
   const [uninstalling, setUninstalling] = useState(false);
   const [gone, setGone] = useState(false);
@@ -39,7 +39,7 @@ const DepEntry = ({ name, callback }) => {
   return (
     gone
       ? null
-      : <li class='list dep-name' onMouseOver={mouseOver} onMouseLeave={mouseLeave}>
+      : <li class= {dev ? 'list depdev-name' : 'list dep-name' }onMouseOver={mouseOver} onMouseLeave={mouseLeave}>
         {uninstalling
           ? <div class='spinner'></div>
           : <Fragment>
