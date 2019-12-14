@@ -17,3 +17,7 @@
   left: 0;
   background: linear-gradient(to right, #FF8537, #EB2F2B, #E612E1);
 }
+
+.header h1 {
+  font-weight: 500;
+}

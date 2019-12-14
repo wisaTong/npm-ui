@@ -2,6 +2,8 @@ import { h, Fragment } from 'preact';
 import { useState, useEffect } from 'preact/hooks';
 import api from '../../api';
 import DepList from '../DepList';
+import './style.css';
+import NotNpm from './NotNpm';
 
 const NpmContentContainer = ({ path }) => {
   const [hasPkgJson, setPkgJson] = useState(false);
@@ -9,9 +11,13 @@ const NpmContentContainer = ({ path }) => {
   useEffect(async () => { setPkgJson(await api.hasPkgJson(path)) }, [path]);
 
   return (
-    hasPkgJson
-      ? <DepList path={path} />
-      : null
+    <div class='npm-content-container'>
+      {
+        hasPkgJson
+          ? <DepList path={path} />
+          : <NotNpm />
+      }
+    </div>
   );
 };
 

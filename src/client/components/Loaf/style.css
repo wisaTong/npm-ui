@@ -7,12 +7,13 @@
 
 .breadcrumb-holder {
   width: 80%;
+  margin-top: 1rem;
   display: flex;
   justify-content: flex-start;
 }
 
 .breadcrumb {
-  margin-left: 1rem;
+  margin-left: .3rem;
   padding: .3rem .7rem;
   border-radius: 8px;
   background-color: #FF8047;
