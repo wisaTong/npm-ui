@@ -36,3 +36,35 @@
 .list {
   padding: 1rem;
 }
+
+.breadhead {
+  display: flex;
+}
+
+.selector-holder {
+  margin-top: 1rem;
+}
+
+.selector {
+  background: palegoldenrod;
+  padding: .3rem .7rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.selector-options {
+  position: absolute;
+  background: white;
+  margin-left: .3rem;
+  padding: .4rem .7rem;
+  cursor: pointer;
+}
+
+.options:hover {
+  background: rgb(236, 235, 220);
+}
+
+.options span {
+  font-size: .7rem;
+  color: gray;
+}
