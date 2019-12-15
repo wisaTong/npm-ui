@@ -1,5 +1,6 @@
 import Datastore from 'nedb-promises'
-const datastore = Datastore.create('/pm.db')
+import { exec } from 'child_process'
+const datastore = Datastore.create('pm.db')
 
 export const getProjects = async (req, res, next) => {
   const data = await datastore.find()
@@ -13,7 +14,12 @@ export const newProject = async (req, res, next) => {
       name,
       path
     });
-    res.sendStatus(201)
+    exec('npm init -y', {cwd: path},(err, stdout, stderr) => {
+      if (err) {
+        return;
+      }
+      res.sendStatus(201)
+    })
   } catch (err) {
     res.sendStatus(400)
   } 

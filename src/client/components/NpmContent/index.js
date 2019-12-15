@@ -8,15 +8,23 @@ import NotNpm from './NotNpm';
 const NpmContentContainer = ({ path }) => {
   const [hasPkgJson, setPkgJson] = useState(false);
 
-  useEffect(async () => { setPkgJson(await api.hasPkgJson(path)) }, [path]);
+  useEffect(async () => { fetchPkgJson() }, [path]);
+  const fetchPkgJson = async () => {
+    setPkgJson(await api.hasPkgJson(path));
+  }
+
+  const projectCreationHanlder = async (name) => {
+    await api.newProject(name, path)
+    await fetchPkgJson()
+  }
 
   return (
-    <div class='npm-content-container'>
-      {
-        hasPkgJson
-          ? <DepList path={path} />
-          : <NotNpm />
-      }
+    <div class="npm-content-container">
+      {hasPkgJson ? (
+        <DepList path={path} />
+      ) : (
+        <NotNpm path={path} onProjectCreate={projectCreationHanlder} />
+      )}
     </div>
   );
 };

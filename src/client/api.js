@@ -32,9 +32,27 @@ async function uninstall(path, pkg) {
   return res.ok;
 }
 
+async function getProjects() {
+  const url = `${BASE_URL}/projects`;
+  const res = await fetch(url);
+  return res.json();
+}
+
+async function newProject(name, path) {
+  const url = `${BASE_URL}/projects`;
+  const res = await fetch(url, {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({name, path})
+  })
+  return res.ok;
+}
+
 export default {
   dirs,
   hasPkgJson,
   pkgJsonContent,
-  uninstall
+  uninstall,
+  getProjects,
+  newProject
 };
