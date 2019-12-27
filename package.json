@@ -8,6 +8,7 @@
     "dev:front": "webpack-dev-server --mode development",
     "dev:back": "node server.js",
     "prebuild": "rm -rf dist",
+    "prebuild:win32": "del dist",
     "build": "cp -r public/ dist/ && webpack"
   },
   "repository": {
@@ -39,6 +40,7 @@
     "@babel/preset-env": "^7.7.6",
     "babel-loader": "^8.0.6",
     "css-loader": "^3.3.0",
+    "run-script-os": "^1.0.7",
     "style-loader": "^1.0.1",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10",
