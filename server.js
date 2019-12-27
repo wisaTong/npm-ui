@@ -1,3 +1,4 @@
+import '@babel/polyfill';
 import app from './src/app';
 
 const server = app.listen(process.env.PORT || 3000, () => {

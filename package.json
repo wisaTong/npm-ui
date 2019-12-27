@@ -4,11 +4,11 @@
   "description": "gui project manager for npm project",
   "main": "index.js",
   "scripts": {
-    "start": "npm run build && nodemon server.js --exec babel-node",
+    "start": "npm run build && node dist/server.js",
     "dev:front": "webpack-dev-server --mode development",
     "dev:back": "nodemon server.js --exec babel-node",
-    "prebuild": "rm -rf dist",
-    "build": "cp -r public/ dist/ && webpack"
+    "prebuild": "rm -rf dist && cp -r public/ dist/",
+    "build": "webpack && babel . -D -d dist --ignore \"./node_modules/\" --ignore \"./src/client/\" --ignore \"./dist/\""
   },
   "repository": {
     "type": "git",
@@ -32,6 +32,7 @@
     "underscore": "^1.9.1"
   },
   "devDependencies": {
+    "@babel/cli": "^7.7.7",
     "@babel/core": "^7.7.5",
     "@babel/node": "^7.7.4",
     "@babel/plugin-transform-react-jsx": "^7.7.4",
