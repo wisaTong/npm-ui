@@ -15,7 +15,7 @@ const NpmContentContainer = ({ path }) => {
     setPkgJson(await api.hasPkgJson(path));
   };
 
-  const projectCreationHanlder = async name => {
+  const projectCreationHandler = async name => {
     await api.newProject(name, path);
     await fetchPkgJson();
   };
@@ -25,7 +25,7 @@ const NpmContentContainer = ({ path }) => {
       {hasPkgJson ? (
         <DepList path={path} />
       ) : (
-        <NotNpm path={path} onProjectCreate={projectCreationHanlder} />
+        <NotNpm path={path} onProjectCreation={projectCreationHandler} />
       )}
     </div>
   );
