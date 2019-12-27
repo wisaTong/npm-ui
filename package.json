@@ -1,6 +1,6 @@
 {
   "name": "npm-ui-plus",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "gui project manager for npm project",
   "main": "dist/server.js",
   "bin": "dist/server.js",
