@@ -19,7 +19,7 @@ const deleteScript = (req, res, next) => {
 };
 
 const editScript = (req, res, next) => {
-  const { cwd, name } = req.body;
+  const { cwd, name, command } = req.body;
   const pkgJsonPath = `${cwd}/package.json`;
   const pkgJson = require(pkgJsonPath);
   pkgJson.scripts[name] = command;
