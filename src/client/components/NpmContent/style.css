@@ -1,7 +1,6 @@
 .npm-content-container {
   width: 30%;
   height: 100%;
-  display: flex;
   justify-content: center;
   align-items: flex-start;
 }

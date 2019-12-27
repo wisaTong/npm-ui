@@ -8,7 +8,9 @@
     "dev:front": "webpack-dev-server --mode development",
     "dev:back": "node server.js",
     "prebuild": "rm -rf dist",
-    "build": "cp -r public/ dist/ && webpack"
+    "build": "cp -r public/ dist/ && webpack",
+    "haha": "rm -rf dist",
+    "hehe": "rm -rf dist"
   },
   "repository": {
     "type": "git",

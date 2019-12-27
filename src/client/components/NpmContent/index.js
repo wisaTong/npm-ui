@@ -2,6 +2,7 @@ import { h, Fragment } from "preact";
 import { useState, useEffect } from "preact/hooks";
 import api from "../../api";
 import DepList from "../DepList";
+import ScriptList from "../ScriptList";
 import "./style.css";
 import NotNpm from "./NotNpm";
 
@@ -24,7 +25,10 @@ const NpmContentContainer = ({ path, onProjectCreation }) => {
   return (
     <div class="npm-content-container">
       {hasPkgJson ? (
-        <DepList path={path} />
+        <Fragment>
+          <ScriptList path={path} />
+          <DepList path={path} />
+        </Fragment>
       ) : (
         <NotNpm path={path} onProjectCreation={projectCreationHandler} />
       )}
