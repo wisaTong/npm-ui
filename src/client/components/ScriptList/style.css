@@ -1,4 +1,5 @@
 .scriptlist-holder {
+  position: relative;
   width: 100%;
   height: 50%;
   overflow: hidden auto;
@@ -7,6 +8,8 @@
 .scriptlist-holder h1 {
   color: rgba(243, 8, 130, 1);
   margin-bottom: 1rem;
+  position: sticky;
+  top: 0;
 }
 
 .script-entry {
@@ -52,4 +55,6 @@
   border-radius: 8px;
   padding: 0 .8rem;
   white-space: nowrap;
+  position: sticky;
+  top: 0;
 }

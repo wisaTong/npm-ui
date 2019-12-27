@@ -8,7 +8,9 @@
     "dev:front": "webpack-dev-server --mode development",
     "dev:back": "nodemon server.js --exec babel-node",
     "prebuild": "rm -rf dist",
-    "build": "cp -r public/ dist/ && webpack"
+    "build": "cp -r public/ dist/ && webpack",
+    "test": "mocha something",
+    "null": null
   },
   "repository": {
     "type": "git",

@@ -2,6 +2,7 @@ import _ from "underscore";
 import { h, Fragment } from "preact";
 import { useState } from "preact/hooks";
 import api from '../../api';
+import AddScript from '../AddScript';
 import "./style.css";
 
 const ScriptEntry = ({ name, cwd, command, callback }) => {
@@ -34,6 +35,7 @@ const ScriptList = ({ pkgJson, path }) => {
     <div class="scriptlist-holder">
       <h1 style={{ display: 'inline' }}>{currentCmd ? currentCmd.name : 'Scripts'}</h1>
       <span class='script-bubble'>{currentCmd ? currentCmd.script : 'select script'}</span>
+      <AddScript path={path}></AddScript>
       <ul class="scriptlist">
         {_.keys(scripts).map(script => (
           <ScriptEntry name={script}

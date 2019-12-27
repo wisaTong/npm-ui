@@ -48,6 +48,15 @@ async function newProject(name, path) {
   return res.ok;
 }
 
+async function addScript(cwd, name, command) {
+  const url = `${BASE_URL}/scripts`;
+  const res = await fetch(url, {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({cwd, name, command})
+  })
+}
+
 async function editScript(cwd, name, command) {
   const url = `${BASE_URL}/scripts`;
   const res = await fetch(url, {
@@ -74,6 +83,7 @@ export default {
   uninstall,
   getProjects,
   newProject,
+  addScript,
   editScript,
   deleteScript
 };
