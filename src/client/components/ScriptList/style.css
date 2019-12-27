@@ -10,8 +10,10 @@
 }
 
 .script-entry {
+  cursor: pointer;
   padding: 16px;
   display: flex;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -24,8 +26,20 @@
   margin: 2px;
 }
 
+.script-action button {
+  margin: 0 1rem;
+  background: none;
+  cursor: pointer;
+  color: rgb(255, 44, 168);
+  transition: transform .2s ease-out;
+}
+
+.script-action button:hover {
+  transform: scale(1.2);
+}
+
 .script-entry:hover {
-  background-color: rgba(255, 44, 168, 0.7);
+  background-color: rgba(255, 44, 168, 0.5);
 }
 
 .selector-holder {
