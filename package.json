@@ -3,6 +3,7 @@
   "version": "0.2.1",
   "description": "gui project manager for npm project",
   "main": "dist/server.js",
+  "bin": "server.js",
   "scripts": {
     "start": "npm run build && node dist/server.js",
     "dev:front": "webpack-dev-server --mode development",

@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import '@babel/polyfill';
 import app from './src/app';
 
