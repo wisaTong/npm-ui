@@ -4,12 +4,14 @@ import { useState } from "preact/hooks";
 import api from '../../api';
 import "./style.css";
 
-const ScriptEntry = ({ name, cwd }) => {
-  const [editing, setEditing] = useState(false);
+const ScriptEntry = ({ name, cwd, script, callback }) => {
+  const [alive, setAlive] = useState(true);
+  const kill = () => setAlive(false);
   const scriptEditedHandler = () => { };
-  const deleteHandler = () => { api.deleteScript(cwd, name) };
+  const deleteHandler = () => { api.deleteScript(cwd, name).then(kill()) };
+  if (!alive) return null;
   return (
-    <li class='script-entry'>
+    <li class='script-entry' onClick={callback} >
       <div class='script-name'>{name}</div>
       <div class='script-action'>
         <button>Edit</button>
@@ -20,14 +22,19 @@ const ScriptEntry = ({ name, cwd }) => {
 };
 
 const ScriptList = ({ pkgJson, path }) => {
+  const [currentCmd, setCmd] = useState(null);
   const { scripts } = pkgJson;
-  console.log(path);
   return (
     <div class="scriptlist-holder">
-      <h1>Scripts</h1>
+      <h1 style={{ display: 'inline' }}>{currentCmd ? currentCmd : 'Scripts'}</h1>
+      <span class='script-bubble'>{currentCmd ? scripts[currentCmd] : 'select script'}</span>
       <ul class="scriptlist">
         {_.keys(scripts).map(script => (
-          <ScriptEntry name={script} command={scripts[script]} cwd={path}/>
+          <ScriptEntry name={script}
+            command={scripts[script]}
+            cwd={path}
+            callback={() => setCmd(script)}
+          />
         ))}
       </ul>
     </div>
