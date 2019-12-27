@@ -3,10 +3,13 @@ import { useState } from 'preact/hooks';
 import api from '../../api';
 import './style.css';
 
-const AddScript = ({ path }) => {
+const AddScript = ({ path, callback }) => {
   const [name, setName] = useState(null);
   const [script, setScript] = useState(null);
-  const handleAdd = () => { api.addScript(path, name, script) };
+  const handleAdd = () => { api.addScript(path, name, script).then(() => {
+    console.log(callback)
+    callback(name, script)
+  }) };
   return (
     <div class='add-script-holder'>
       <div class='add-script-input'>

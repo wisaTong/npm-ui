@@ -8,8 +8,12 @@
 .scriptlist-holder h1 {
   color: rgba(243, 8, 130, 1);
   margin-bottom: 1rem;
+}
+
+.scriptlist-header {
   position: sticky;
   top: 0;
+  background-color: #fff;
 }
 
 .script-entry {
@@ -55,6 +59,4 @@
   border-radius: 8px;
   padding: 0 .8rem;
   white-space: nowrap;
-  position: sticky;
-  top: 0;
 }

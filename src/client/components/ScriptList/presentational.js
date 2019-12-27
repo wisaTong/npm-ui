@@ -1,5 +1,5 @@
 import _ from "underscore";
-import { h, Fragment } from "preact";
+import { h } from "preact";
 import { useState } from "preact/hooks";
 import api from '../../api';
 import AddScript from '../AddScript';
@@ -30,12 +30,20 @@ const ScriptEntry = ({ name, cwd, command, callback }) => {
 
 const ScriptList = ({ pkgJson, path }) => {
   const [currentCmd, setCmd] = useState(null);
-  const { scripts } = pkgJson;
+  const [scripts, setScripts] = useState(pkgJson.scripts);
+  const addScript = (prev) => (name, cmd) => {
+    const copy = JSON.parse(JSON.stringify(prev));
+    copy[name] = cmd;
+    setScripts(copy);
+  }
+
   return (
     <div class="scriptlist-holder">
-      <h1 style={{ display: 'inline' }}>{currentCmd ? currentCmd.name : 'Scripts'}</h1>
-      <span class='script-bubble'>{currentCmd ? currentCmd.script : 'select script'}</span>
-      <AddScript path={path}></AddScript>
+      <div class='scriptlist-header'>
+        <h1 style={{ display: 'inline' }}>{currentCmd ? currentCmd.name : 'Scripts'}</h1>
+        <span class='script-bubble'>{currentCmd ? currentCmd.script : 'select script'}</span>
+      </div>
+      <AddScript path={path} callback={addScript(scripts)}></AddScript>
       <ul class="scriptlist">
         {_.keys(scripts).map(script => (
           <ScriptEntry name={script}
