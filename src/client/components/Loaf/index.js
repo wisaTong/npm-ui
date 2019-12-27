@@ -45,17 +45,17 @@ const Loaf = () => {
 
   return cwd ? (
     <Fragment>
-      <div class="breadhead">
+      <div class='left'>
+        <Breadcrumb path={cwd.path} callback={fetchDirsSetCwd} />
+        <Slicedbread dirs={cwd.dirs} callback={fetchDirsSetCwd} />
+      </div>
+      <div class='right'>
         <ProjectSelector
           projects={projects}
           currentProject={currentProject}
           onProjectSelection={projectSelectHandler}
         />
-        <Breadcrumb path={cwd.path} callback={fetchDirsSetCwd} />
-      </div>
-      <div class="loaf-body">
         <NpmContent path={cwd.path} onProjectCreation={projectCreateHandler} />
-        <Slicedbread dirs={cwd.dirs} callback={fetchDirsSetCwd} />
       </div>
     </Fragment>
   ) : null;

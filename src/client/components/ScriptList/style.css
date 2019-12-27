@@ -4,6 +4,11 @@
   overflow: auto;
 }
 
+.scriptlist-holder h1 {
+  color: rgba(243, 8, 130, 1);
+  margin-bottom: 1rem;
+}
+
 .script-entry {
   padding: 16px;
   display: flex;
@@ -21,4 +26,8 @@
 
 .script-entry:hover {
   background-color: rgba(255, 44, 168, 0.7);
+}
+
+.selector-holder {
+  margin-bottom: 1.5rem;;
 }

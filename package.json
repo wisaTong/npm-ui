@@ -6,7 +6,7 @@
   "scripts": {
     "start": "npm run build && nodemon server.js --exec babel-node",
     "dev:front": "webpack-dev-server --mode development",
-    "dev:back": "node server.js",
+    "dev:back": "nodemon server.js --exec babel-node",
     "prebuild": "rm -rf dist",
     "build": "cp -r public/ dist/ && webpack"
   },

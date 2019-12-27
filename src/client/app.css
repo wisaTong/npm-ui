@@ -14,5 +14,7 @@ ul, ol {
 }
 
 .app-body {
+  height: 80vh;
   padding: 0 15%;
+  display: flex;
 }

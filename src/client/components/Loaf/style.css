@@ -1,3 +1,11 @@
+.left {
+  width: 70%;
+}
+
+.right {
+  width: 30%;
+}
+
 .loaf-body {
   display: flex;
   flex-flow: row nowrap;
@@ -6,8 +14,8 @@
 }
 
 .breadcrumb-holder {
-  width: 80%;
-  margin-top: 1rem;
+  width: 100%;
+  margin: 1rem 0;
   display: flex;
   justify-content: flex-start;
 }
@@ -42,17 +50,14 @@
   padding: 1rem;
 }
 
-.breadhead {
-  display: flex;
-}
-
 .selector-holder {
-  margin-top: 1rem;
+  width: 100%;
+  margin: 1rem 0;
 }
 
 .selector {
   background: palegoldenrod;
-  width: 300px;
+  width: 100%;
   padding: 0.3rem 0.7rem;
   border-radius: 8px;
   cursor: pointer;
