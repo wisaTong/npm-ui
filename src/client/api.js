@@ -48,6 +48,16 @@ async function newProject(name, path) {
   return res.ok;
 }
 
+async function deleteScript(cwd, name) {
+  const url = `${BASE_URL}/scripts`;
+  const res = await fetch(url, {
+    method: 'DELETE',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({cwd, name})
+  })
+  return res.ok;
+}
+
 export default {
   dirs,
   hasPkgJson,

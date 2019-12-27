@@ -1,35 +1,51 @@
 import _ from "underscore";
 import { h, Fragment } from "preact";
+import { useState } from "preact/hooks";
+import api from '../../api';
 import "./style.css";
-import { useEffect, useState } from "preact/hooks";
+
+
+const EditEntry = ({ name }) => {
+  return (
+    <Fragment>
+      <input></input>
+      <input></input>
+    </Fragment>
+  );
+};
+
+const NormalEntry = ({ name, callback }) => {
+  return (
+    <Fragment>
+      {name}
+      {/* <button onClick={callback} >Edit</button> */}
+    </Fragment>
+  );
+}
 
 const ScriptEntry = ({ name, command }) => {
   const [editing, setEditing] = useState(false);
-  const scriptEditedHandler = () => {};
+  const scriptEditedHandler = () => { };
   return (
-    <div class="script-entry">
-      <div class="script-label">
-        {editing ? (
-          <div class="script-edit">
-            <input type="text" placeholder="Script Name" value={name} />
-          </div>
-        ) : (
-          <span>{name}</span>
-        )}
+    <li class="script-entry">
+      {editing
+        ? <EditEntry name={name} />
+        : <NormalEntry name={name} callback={() => setEditing(true)} />
+      }
+      {/* <div class="script-label">
+        {editing
+          ? <input type="text" placeholder="Script Name" value={name} />
+          : <span>{name}</span>
+        }
       </div>
       <div class="script-actions">
-        {editing ? (
-          <button class="script-action" onClick={scriptEditedHandler}>
-            Done
-          </button>
-        ) : (
-          <button class="script-action" onClick={() => setEditing(true)}>
-            Edit
-          </button>
-        )}
+        {editing
+          ? <button class="script-action" onClick={scriptEditedHandler}>Done</button>
+          : <button class="script-action" onClick={() => setEditing(true)}>Edit</button>
+        }
         <button class="script-action">Delete</button>
-      </div>
-    </div>
+      </div> */}
+    </li>
   );
 };
 

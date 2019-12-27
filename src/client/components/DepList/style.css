@@ -45,6 +45,7 @@
 }
 
 .uninstall {
+  cursor: pointer;
   position: absolute;
   right: 1.2rem;
   color: #f30882;

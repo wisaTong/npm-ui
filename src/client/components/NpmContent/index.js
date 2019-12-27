@@ -3,15 +3,14 @@ import { useState, useEffect } from "preact/hooks";
 import api from "../../api";
 import DepList from "../DepList";
 import ScriptList from "../ScriptList";
-import "./style.css";
 import NotNpm from "./NotNpm";
+import "./style.css";
 
 const NpmContentContainer = ({ path, onProjectCreation }) => {
   const [hasPkgJson, setPkgJson] = useState(false);
 
-  useEffect(async () => {
-    fetchPkgJson();
-  }, [path]);
+  useEffect(async () => fetchPkgJson(), [path]);
+
   const fetchPkgJson = async () => {
     setPkgJson(await api.hasPkgJson(path));
   };
@@ -24,14 +23,12 @@ const NpmContentContainer = ({ path, onProjectCreation }) => {
 
   return (
     <div class="npm-content-container">
-      {hasPkgJson ? (
-        <Fragment>
+      {hasPkgJson
+        ? <Fragment>
           <ScriptList path={path} />
           <DepList path={path} />
         </Fragment>
-      ) : (
-        <NotNpm path={path} onProjectCreation={projectCreationHandler} />
-      )}
+        : <NotNpm path={path} onProjectCreation={projectCreationHandler} />}
     </div>
   );
 };

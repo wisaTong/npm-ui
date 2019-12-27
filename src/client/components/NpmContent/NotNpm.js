@@ -1,6 +1,6 @@
 import { h } from "preact";
-import "./style.css";
 import { useState, useEffect } from "preact/hooks";
+import "./style.css";
 
 const NotNpm = ({ path, onProjectCreation }) => {
   const [isCreating, setCreating] = useState(false);
