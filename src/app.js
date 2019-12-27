@@ -1,3 +1,4 @@
+import path from 'path';
 import express from 'express';
 import morgan from 'morgan';
 import cors from 'cors';
@@ -10,7 +11,7 @@ app.use(cors());
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 
-app.use(express.static(path.join(__dirname, 'dist')));
+app.use(express.static(path.join(__dirname, '../dist')));
 app.use(routes);
 
 export default app;

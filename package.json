@@ -1,6 +1,6 @@
 {
   "name": "npm-ui-plus",
-  "version": "0.2.4",
+  "version": "0.2.8",
   "description": "gui project manager for npm project",
   "main": "dist/server.js",
   "bin": "dist/server.js",
@@ -29,6 +29,7 @@
     "nedb": "^1.8.0",
     "nedb-promises": "^4.0.0",
     "nodemon": "^2.0.2",
+    "opn": "^6.0.0",
     "preact": "^10.1.0",
     "underscore": "^1.9.1"
   },
