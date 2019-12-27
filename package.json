@@ -7,9 +7,9 @@
     "start": "npm run build && nodemon server.js --exec babel-node",
     "dev:front": "webpack-dev-server --mode development",
     "dev:back": "node server.js",
-    "prebuild": "rm -rf dist",
-    "prebuild:win32": "del dist",
-    "build": "cp -r public/ dist/ && webpack"
+    "build": "run-script-os",
+    "build:win32": "del dist && cp -r public/ dist/ && webpack",
+    "build:darwin:linux": "rm -rf dist && cp -r public/ dist/ && webpack"
   },
   "repository": {
     "type": "git",
