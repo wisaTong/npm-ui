@@ -4,60 +4,30 @@ import { useState } from "preact/hooks";
 import api from '../../api';
 import "./style.css";
 
-
-const EditEntry = ({ name }) => {
-  return (
-    <Fragment>
-      <input></input>
-      <input></input>
-    </Fragment>
-  );
-};
-
-const NormalEntry = ({ name, callback }) => {
-  return (
-    <Fragment>
-      {name}
-      {/* <button onClick={callback} >Edit</button> */}
-    </Fragment>
-  );
-}
-
-const ScriptEntry = ({ name, command }) => {
+const ScriptEntry = ({ name, cwd }) => {
   const [editing, setEditing] = useState(false);
   const scriptEditedHandler = () => { };
+  const deleteHandler = () => { api.deleteScript(cwd, name) };
   return (
-    <li class="script-entry">
-      {editing
-        ? <EditEntry name={name} />
-        : <NormalEntry name={name} callback={() => setEditing(true)} />
-      }
-      {/* <div class="script-label">
-        {editing
-          ? <input type="text" placeholder="Script Name" value={name} />
-          : <span>{name}</span>
-        }
+    <li class='script-entry'>
+      <div class='script-name'>{name}</div>
+      <div class='script-action'>
+        <button>Edit</button>
+        <button onClick={deleteHandler}>Delete</button>
       </div>
-      <div class="script-actions">
-        {editing
-          ? <button class="script-action" onClick={scriptEditedHandler}>Done</button>
-          : <button class="script-action" onClick={() => setEditing(true)}>Edit</button>
-        }
-        <button class="script-action">Delete</button>
-      </div> */}
     </li>
   );
 };
 
 const ScriptList = ({ pkgJson, path }) => {
   const { scripts } = pkgJson;
-
+  console.log(path);
   return (
     <div class="scriptlist-holder">
       <h1>Scripts</h1>
       <ul class="scriptlist">
         {_.keys(scripts).map(script => (
-          <ScriptEntry name={script} command={scripts[script]} />
+          <ScriptEntry name={script} command={scripts[script]} cwd={path}/>
         ))}
       </ul>
     </div>

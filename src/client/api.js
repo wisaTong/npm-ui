@@ -64,5 +64,6 @@ export default {
   pkgJsonContent,
   uninstall,
   getProjects,
-  newProject
+  newProject,
+  deleteScript
 };
