@@ -17,19 +17,31 @@ const Loaf = () => {
     setCwd(wd);
   };
 
+  const fetchProjects = async (wd = cwd) => {
+    const projects = await api.getProjects();
+    setProjects(projects);
+    setCurrentProject(projects.find(project => project.path === wd.path));
+  };
+
   const projectSelectHandler = id => {
     const projectToSelect = projects.find(project => project._id === id);
     setCurrentProject(projectToSelect);
     fetchDirsSetCwd(projectToSelect.path);
   };
 
+  const projectCreateHandler = async (name, path) => {
+    await fetchProjects();
+  };
+
   useEffect(async () => {
     const wd = await api.dirs();
     setCwd(wd);
-    const projects = await api.getProjects();
-    setProjects(projects);
-    setCurrentProject(projects.find(project => project.path === wd.path));
+    fetchProjects(wd);
   }, []);
+
+  useEffect(async () => {
+    await fetchProjects();
+  }, [cwd]);
 
   return cwd ? (
     <Fragment>
@@ -43,7 +55,7 @@ const Loaf = () => {
       </div>
       <div class="loaf-body">
         <Slicedbread dirs={cwd.dirs} callback={fetchDirsSetCwd} />
-        <NpmContent path={cwd.path} />
+        <NpmContent path={cwd.path} onProjectCreation={projectCreateHandler} />
       </div>
     </Fragment>
   ) : null;

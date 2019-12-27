@@ -5,7 +5,7 @@ import DepList from "../DepList";
 import "./style.css";
 import NotNpm from "./NotNpm";
 
-const NpmContentContainer = ({ path }) => {
+const NpmContentContainer = ({ path, onProjectCreation }) => {
   const [hasPkgJson, setPkgJson] = useState(false);
 
   useEffect(async () => {
@@ -18,6 +18,7 @@ const NpmContentContainer = ({ path }) => {
   const projectCreationHandler = async name => {
     await api.newProject(name, path);
     await fetchPkgJson();
+    await onProjectCreation(name, path);
   };
 
   return (
